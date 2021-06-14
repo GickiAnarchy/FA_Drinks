@@ -1,0 +1,14 @@
+    /*
+        --Attaches to Drink_Base.
+        --Takes multiple mixers.
+        --Drink will only hold x mixers before full.
+        --Mixing can fail, making a drink garbage.
+        
+        <Steps Mixer=>Manager/Drink=>Player>
+        
+        A) player adds mixer(s) to drink.
+        a) add the Mix_Base to Drink_Base's MixersManager.
+        
+        B)
+    
+    */
