@@ -1,8 +1,8 @@
-// File dealing with camera effects and functions to aid in their usage.
+
 class CameraEffects extends PPEffects
 {
 	
-	// Constant assignments and initialization. 
+	
 	static float EXPOSURE = 0.0;
 	static float CHROMABERX = 0.0;
 	static float CHROMABERY = 0.0;
@@ -34,27 +34,13 @@ class CameraEffects extends PPEffects
 
     }
 
-    // Postprocess effects materials.
+    
 	void init()
 	{
 
 	}
 
-    // Function used to apply NVG grain effects on a player.
-    //static void setNVGEffect(float sharpness, float grain_size)
-    //{
-    //    Material matHDR = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/filmgrainNV");
-    //    SHARPNESS = sharpness;
-    //    GRAIN_SIZE = grain_size;
-
-    //    if(matHDR)
-    //    {
-    //        matHDR.SetParam("Sharpness", SHARPNESS);
-    //		    matHDR.SetParam("GrainSize", GRAIN_SIZE);
-    //    }
-    //}
-
-    // Function used to change Chromatic Aberration X value.
+    
     static void changeChromaX(int value)
     {
     	Material chroma = GetGame().GetWorld().GetMaterial("graphics/materials/postprocess/chromaber");
@@ -66,7 +52,7 @@ class CameraEffects extends PPEffects
         }
     }
 
-    // Function used to change Chromatic Aberration Y value.
+    
     static void changeChromaY(int value)
     {
     	Material chroma = GetGame().GetWorld().GetMaterial("graphics/materials/postprocess/chromaber");
@@ -78,15 +64,13 @@ class CameraEffects extends PPEffects
         }
     }
 
-    // Sets the exposure of the players camera.
+    
     static void setExposure(int value)
     {
         EXPOSURE = (value * 0.1) - 5.0;
 	    GetGame().SetEVUser(EXPOSURE);
     }
 
-    // Function used to change radial blur effect on X-axis. 
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRadBlurXEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -97,9 +81,7 @@ class CameraEffects extends PPEffects
             radialBlur.SetParam("PowerX", RADBLURX);
 		}
 	}
- 
-    // Function used to change radial blur effect on the Y-axis.
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
+
 	static void changeRadBlurYEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -111,8 +93,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change radial blur offset effect on X-axis. 
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRadBlurXOffsetEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -124,8 +104,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change radial blur offset effect on the Y-axis.
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRadBlurYOffsetEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -137,8 +115,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change rotation blur depth. 
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRotationBlurPower(int intensity) 
 	{
 		Material rotationBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/rotblur");
@@ -150,8 +126,6 @@ class CameraEffects extends PPEffects
         }
 	}
 
-    // Function used to change rotation blur depth. 
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRotationBlurDepth(int intensity) 
 	{
 		Material rotationBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/rotblur");
@@ -163,8 +137,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change rotation blur max depth. 
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeRotationBlurMaxDepth(int intensity) 
 	{
 		Material rotationBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/rotblur");
@@ -176,8 +148,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change the strength of the vignette effect.
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
+
 	static void changeVignette(int intensity) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("graphics/gaterials/postprocess/glow");
@@ -189,8 +160,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change the Red color of the vignette effect.
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeVignetteColorRGB(int R, int G, int B) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/glow");
@@ -204,8 +173,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change the RGB color of the overlay.
-    // Intensity value between 0-100. 0 been least instense, 100 most intense.
 	static void changeOverlayColorRGB(int R, int G, int B, int overlay) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/glow");
@@ -222,8 +189,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 
-    // Function used to change Hue of the screen. 
-    // Intensity value between 0-1000.
 	static void changeHue(float intensity) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("graphics/materials/postprocess/glow");
@@ -235,8 +200,6 @@ class CameraEffects extends PPEffects
 		}
 	}
 	
-	//Resets some changes to default
-	//
 	static void ResetSome()
 	{
         CameraEffects.changeHue(60);
