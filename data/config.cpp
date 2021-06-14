@@ -15,9 +15,6 @@ class CfgPatches
 	};
 };
 
-class CfgSlots
-{
-};
 
 class CfgVehicles
 {
@@ -103,8 +100,4 @@ class CfgVehicles
 	};
 
 
-};
-
-class CfgnonAIVehicles
-{
 };

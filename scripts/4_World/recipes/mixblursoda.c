@@ -57,21 +57,11 @@ class MixBlurSoda extends RecipeBase
 
 	override bool CanDo(ItemBase ingredients[], PlayerBase player)//final check for recipe's validity
 	{
-		Mix_Base mBase = Mix_Base.Cast(ingredients[0]);
-        Drink_Base tester = Drink_Base.Cast(ingredients[1]);
-		if (tester.GetisFullyMixed() == false)
-        {
-			return tester.GetMixersManager().AddMixerToDrink(mBase);
-            return true;
-        } else {
-			
-            return false;
-        };
+		return true;
 	}
 
 	override void Do(ItemBase ingredients[], PlayerBase player,array<ItemBase> results, float specialty_weight)//gets called upon recipe's completion
 	{
-		//ItemBase ingredient2 = ingredients[1];
-		//ingredient2.ReplaceEdibleWithNew("BlurSoda");
+		Print("MixBlurSoda recipe has completed);
 	}
 };

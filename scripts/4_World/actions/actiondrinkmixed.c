@@ -26,16 +26,7 @@ class ActionDrinkMixed: ActionSingleUseBase
 
 	override bool ActionCondition( PlayerBase player, ActionTarget target, ItemBase item )
 	{
-		
-		PlayerBase player = action_data.m_Player;
-		player.DrinkEffectsTriggered();	
-		Drink_Base drink = Drink_Base.Cast(item);
-		if (drink.GetNumberOfMixers() > 0)
-		{
-			return true;
-		} else {
-			return false;
-		}
+		return true;
 	}
 
 	override void OnExecuteServer( ActionData action_data )
@@ -48,7 +39,11 @@ class ActionDrinkMixed: ActionSingleUseBase
 		
 	}
 	
-
+	override void OnExecuteClient(ActionData action_data)
+    {	
+    	PlayerBase player = action_data.m_Player;
+		player.DrinkEffectsTriggered();	
+	}
 
 	override void OnEndServer( ActionData action_data )
 	{
@@ -57,7 +52,7 @@ class ActionDrinkMixed: ActionSingleUseBase
 		
 		if (action_data.m_WasExecuted && item )
 		{
-           		if (item.HasQuantity())
+           	if (item.HasQuantity())
 			{
 				item.AddQuantity(-1,true);
 			} else
@@ -67,10 +62,4 @@ class ActionDrinkMixed: ActionSingleUseBase
 		}
 	}
 
-
-	override void OnExecuteClient(ActionData action_data)
-    {	
-    	PlayerBase player = action_data.m_Player;
-		player.DrinkEffectsTriggered();	
-	}
 };

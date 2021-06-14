@@ -2,45 +2,18 @@ class Drink_Base extends Bottle_Base
 {
     //
     //
-    protected bool isFullyMixed;
-    protected ref MixersManager mixers_manager;
+  
     
     
     //
     //Constructor
     void Drink_Base()
     {
-        mixers_manager = new MixersManager(this);
+        
     };
     
     
-    
-    //
-    //Sets whether or not this drink cant mix anymore.
-    void SetisFullyMixed(bool setter)
-    {
-        isFullyMixed = setter;
-    };
-    
-    //Returns true if drink is full.
-    bool GetisFullyMixed()
-    {
-        return isFullyMixed;
-    };
-    
-    //Returns the Manager between Mixer and Drink 
-    MixersManager GetMixersManager()
-    {
-        return mixers_manager;
-    };
-    
-    //Returns int amount of Mixers added to the drink.
-    int GetNumberOfMixers()
-    {
-        int ret = mixers_manager.GetActiveMixerCount();
-        return ret;
-    };
-
+   
     /*
     //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
     //  
@@ -75,6 +48,6 @@ class Drink_Base extends Bottle_Base
 };
 
 
-class BlurSoda extends Drink_Base{};
-class CompletelyPoison extends Drink_Base{};
-class WarpedWaters extends Drink_Base{};
+class BlurSoda: Drink_Base{};
+class CompletelyPoison: Drink_Base{};
+class WarpedWaters: Drink_Base{};

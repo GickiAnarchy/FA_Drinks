@@ -82,6 +82,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 
+
 	static void changeRadBlurYEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -92,6 +93,7 @@ class CameraEffects extends PPEffects
             radialBlur.SetParam("PowerY", RADBLURY);
 		}
 	}
+
 
 	static void changeRadBlurXOffsetEffect(int intensity) 
 	{
@@ -104,6 +106,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 
+
 	static void changeRadBlurYOffsetEffect(int intensity) 
 	{
 		Material radialBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/radialblur");
@@ -114,6 +117,7 @@ class CameraEffects extends PPEffects
             radialBlur.SetParam("OffsetY", RADBLUROFFY);
 		}
 	}
+
 
 	static void changeRotationBlurPower(int intensity) 
 	{
@@ -126,6 +130,7 @@ class CameraEffects extends PPEffects
         }
 	}
 
+
 	static void changeRotationBlurDepth(int intensity) 
 	{
 		Material rotationBlur = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/rotblur");
@@ -136,6 +141,7 @@ class CameraEffects extends PPEffects
             rotationBlur.SetParam("MinDepth", MINDEPTH);
 		}
 	}
+
 
 	static void changeRotationBlurMaxDepth(int intensity) 
 	{
@@ -160,6 +166,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 
+
 	static void changeVignetteColorRGB(int R, int G, int B) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("Graphics/Materials/postprocess/glow");
@@ -172,6 +179,7 @@ class CameraEffects extends PPEffects
             materialColors.SetParam("VignetteColor", VARGB);
 		}
 	}
+
 
 	static void changeOverlayColorRGB(int R, int G, int B, int overlay) 
 	{
@@ -189,6 +197,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 
+
 	static void changeHue(float intensity) 
 	{
 		Material materialColors = GetGame().GetWorld().GetMaterial("graphics/materials/postprocess/glow");
@@ -200,6 +209,7 @@ class CameraEffects extends PPEffects
 		}
 	}
 	
+
 	static void ResetSome()
 	{
         CameraEffects.changeHue(60);
@@ -208,5 +218,6 @@ class CameraEffects extends PPEffects
 		CameraEffects.changeRotationBlurPower(0);
 		CameraEffects.changeVignette(0);
 	}
+	
 	
 };
