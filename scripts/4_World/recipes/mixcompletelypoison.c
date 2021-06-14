@@ -1,4 +1,4 @@
-class MixBlurSoda extends RecipeBase
+class MixCompletelyPoison extends RecipeBase
 {	
 	override void Init()
 	{
@@ -24,7 +24,9 @@ class MixBlurSoda extends RecipeBase
 		
 		//INGREDIENTS
 		//ingredient 1
-		InsertIngredient(0,"CharcoalTablets");//you can insert multiple ingredients this way
+		InsertIngredient(0,"DogFoodCan_Opened");//you can insert multiple ingredients this way
+		InsertIngredient(0,"CatFoodCan_Opened");//you can insert multiple ingredients this way
+		InsertIngredient(0,"Worm");//you can insert multiple ingredients this way
 		
 		m_IngredientAddHealth[0] = 0;// 0 = do nothing
 		m_IngredientSetHealth[0] = -1; // -1 = do nothing
@@ -43,7 +45,7 @@ class MixBlurSoda extends RecipeBase
 		//----------------------------------------------------------------------------------------------------------------------
 		
 		//result1
-		AddResult("BlurSoda");//add results here
+		AddResult("CompletelyPoison");//add results here
 
 		m_ResultSetFullQuantity[0] = true;//true = set full quantity, false = do nothing
 		m_ResultSetQuantity[0] = -1;//-1 = do nothing
@@ -57,11 +59,19 @@ class MixBlurSoda extends RecipeBase
 
 	override bool CanDo(ItemBase ingredients[], PlayerBase player)//final check for recipe's validity
 	{
-		return true;
+		Drink_Base item = Drink_Base.Cast(ingredients[1]);
+		if (item.GetAlreadyMixed() == true)
+		{
+			return false;
+		} else {
+			return true;
+		};
 	}
 
 	override void Do(ItemBase ingredients[], PlayerBase player,array<ItemBase> results, float specialty_weight)//gets called upon recipe's completion
 	{
-		Print("MixBlurSoda recipe has completed");
+		Drink_Base item = Drink_Base.Cast(results[0]);
+		Print("MixCompletelyPoison recipe has completed");
+		item.SetAlreadyMixed(true);
 	}
 };

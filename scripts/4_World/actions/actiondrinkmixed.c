@@ -1,4 +1,4 @@
-class ActionDrinkMixed: ActionSingleUseBase
+/* class ActionDrinkMixed: ActionSingleUseBase
 {
 
     PlayerBase player;
@@ -31,35 +31,18 @@ class ActionDrinkMixed: ActionSingleUseBase
 
 	override void OnExecuteServer( ActionData action_data )
 	{
-		Drink_Base drink = Drink_Base.Cast(action_data.m_MainItem);
-		if (drink) 
-		{
-		 	drink.MakeHigh(action_data.m_Player);
-		}
-		
+			
 	}
 	
 	override void OnExecuteClient(ActionData action_data)
     {	
-    	PlayerBase player = action_data.m_Player;
-		player.DrinkEffectsTriggered();	
+    	
 	}
 
 	override void OnEndServer( ActionData action_data )
 	{
-		PlayerBase player = action_data.m_Player;
-		ItemBase item = ItemBase.Cast(action_data.m_MainItem);
 		
-		if (action_data.m_WasExecuted && item )
-		{
-           	if (item.HasQuantity())
-			{
-				item.AddQuantity(-1,true);
-			} else
-			{
-				item.Delete();
-			}
-		}
 	}
 
 };
+ */

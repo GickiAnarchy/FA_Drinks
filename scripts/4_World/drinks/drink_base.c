@@ -1,10 +1,8 @@
 class Drink_Base extends Bottle_Base
 {
-    //
-    //
-  
-    
-    
+    protected bool alreadyMixed = false;
+
+
     //
     //Constructor
     void Drink_Base()
@@ -12,13 +10,22 @@ class Drink_Base extends Bottle_Base
         
     };
     
-    
+    //  alreadyMixed encapulation
+    void SetAlreadyMixed(bool setter)
+    {
+        alreadyMixed = setter;
+    };
+
+    bool GetAlreadyMixed()
+    {
+        bool ret = alreadyMixed;
+        return ret;
+    };
    
-    /*
+    
     //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
     //  
     //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
-    */
     //Makes the player high on vanilla morphine.
     void MakeHigh(PlayerBase player)
 	{
@@ -35,19 +42,21 @@ class Drink_Base extends Bottle_Base
     override void OnConsume(float amount, PlayerBase consumer)
     {
         super.OnConsume(amount, consumer);
+        if (this.GetType() == "BlurSoda")
+        {
+            consumer.BlurSodaEffectsTriggered();
+        }
+        MakeHigh(consumer);
     };
 
     //overridden SetActions function
     override void SetActions()
 	{
 		super.SetActions();
-		AddAction(ActionDrinkMixed);
+		//AddAction(ActionDrinkMixed);
 	};
 
 
 };
 
 
-class BlurSoda: Drink_Base{};
-class CompletelyPoison: Drink_Base{};
-class WarpedWaters: Drink_Base{};

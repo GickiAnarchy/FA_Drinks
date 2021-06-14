@@ -1,3 +1,4 @@
+/*
 modded class ActionConstructor 
 {
     override void RegisterActions(TTypenameArray actions)
@@ -7,3 +8,4 @@ modded class ActionConstructor
         actions.Insert(ActionDrinkMixed);
     }
 }
+*/

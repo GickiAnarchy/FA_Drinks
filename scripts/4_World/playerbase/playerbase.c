@@ -9,7 +9,7 @@ modded class PlayerBase extends ManBase
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
 //      Visual Effects
 //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  //  
-	void DrinkEffectsTriggered() {
+	void BlurSodaEffectsTriggered() {
 		if(GetGame().IsClient())
 		{
 			CameraEffects.changeRadBlurXEffect(29);
@@ -19,19 +19,19 @@ modded class PlayerBase extends ManBase
 	  	}
 		
 		PlaySoundSet(fa_Sniff, SNIFF_LOUD, 0.0, 0.0);
-
-        GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(DrinkEffectsTriggeredOff, 160*1000, false);
+		Print("Blur Soda Visual FX: ON");
+        GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(BlurSodaEffectsTriggeredOff, 160*1000, false);
 	};
 
 
-    void DrinkEffectsTriggeredOff()
+    void BlurSodaEffectsTriggeredOff()
     {
         if(GetGame().IsClient())
         {
 			CameraEffects.ResetSome();
         }
-		
-	  PlaySoundSet(fa_Sniff, SNIFF_SHORT, 0.0, 0.0);	
+		Print("Blur Soda Visual FX: OFF");
+	  	PlaySoundSet(fa_Sniff, SNIFF_SHORT, 0.0, 0.0);	
     };
 
 }

@@ -1,8 +1,6 @@
 
 class CameraEffects extends PPEffects
 {
-	
-	
 	static float EXPOSURE = 0.0;
 	static float CHROMABERX = 0.0;
 	static float CHROMABERY = 0.0;
@@ -70,6 +68,7 @@ class CameraEffects extends PPEffects
         EXPOSURE = (value * 0.1) - 5.0;
 	    GetGame().SetEVUser(EXPOSURE);
     }
+
 
 	static void changeRadBlurXEffect(int intensity) 
 	{
